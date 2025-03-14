@@ -8,11 +8,19 @@ class PageController extends Controller
 {
     public function home()
     {
-        return view('index'); // Retorna a view index.blade.php
+        return view('index');
     }
 
     public function information()
     {
-        return view('information'); // Retorna a view information.blade.php
+        // Busca os dados da sessão para exibir na view
+        return view('information', [
+            'name' => session('name'),
+            'age' => session('age'),
+            'weight' => session('weight'),
+            'height' => session('height'),
+            'imc' => session('imc'),
+            'classification' => session('classification')
+        ]);
     }
 }
